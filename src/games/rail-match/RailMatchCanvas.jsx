@@ -1,9 +1,13 @@
 import { useEffect, useRef } from "react";
 import { GAME_HEIGHT, GAME_WIDTH } from "./constants";
 import { drawScene } from "./draw";
-import { isPointInsideMainSwitch } from "./gameLogic";
+import { getClickedSwitchId } from "./gameLogic";
 
-export default function RailMatchCanvas({ gameState, onToggleSwitch }) {
+export default function RailMatchCanvas({
+  gameState,
+  fxState,
+  onToggleSwitch,
+}) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -13,12 +17,14 @@ export default function RailMatchCanvas({ gameState, onToggleSwitch }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    drawScene(ctx, gameState);
-  }, [gameState]);
+    drawScene(ctx, gameState, fxState);
+  }, [gameState, fxState]);
 
   function handlePointerDown(event) {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
+    canvas.focus();
 
     const rect = canvas.getBoundingClientRect();
     const scaleX = GAME_WIDTH / rect.width;
@@ -26,8 +32,10 @@ export default function RailMatchCanvas({ gameState, onToggleSwitch }) {
     const x = (event.clientX - rect.left) * scaleX;
     const y = (event.clientY - rect.top) * scaleY;
 
-    if (isPointInsideMainSwitch(x, y)) {
-      onToggleSwitch();
+    const clickedSwitchId = getClickedSwitchId(gameState.boardId, x, y);
+
+    if (clickedSwitchId) {
+      onToggleSwitch(clickedSwitchId);
     }
   }
 
@@ -36,10 +44,11 @@ export default function RailMatchCanvas({ gameState, onToggleSwitch }) {
       ref={canvasRef}
       width={GAME_WIDTH}
       height={GAME_HEIGHT}
+      tabIndex={0}
       onPointerDown={handlePointerDown}
       style={{
         width: "100%",
-        maxWidth: "960px",
+        maxWidth: "1120px",
         aspectRatio: `${GAME_WIDTH} / ${GAME_HEIGHT}`,
         display: "block",
         borderRadius: "18px",
@@ -47,6 +56,7 @@ export default function RailMatchCanvas({ gameState, onToggleSwitch }) {
         boxShadow: "0 14px 28px rgba(0, 0, 0, 0.18)",
         cursor: "pointer",
         background: "#d8d8d8",
+        outline: "none",
       }}
     />
   );
