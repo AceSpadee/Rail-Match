@@ -2,7 +2,7 @@ export const LEVELS = [
   {
     id: 1,
     name: "Level 1",
-    boardId: "branchingIntro",
+    boardId: "branchingBase",
     difficultyLabel: "Warm Up",
     tutorialText: "A gentle start, but you still need to reset the route for the next train.",
     initialSwitchStates: {
@@ -19,7 +19,7 @@ export const LEVELS = [
   {
     id: 2,
     name: "Level 2",
-    boardId: "branchingIntro",
+    boardId: "branchingBase",
     difficultyLabel: "Getting Ready",
     tutorialText: "A few more trains, with less time to leave the route in the wrong place.",
     initialSwitchStates: {
@@ -37,7 +37,7 @@ export const LEVELS = [
   {
     id: 3,
     name: "Level 3",
-    boardId: "branchingIntro",
+    boardId: "branchingBase",
     difficultyLabel: "Steady Traffic",
     tutorialText: "Now the route changes come often enough that you need to plan the next train early.",
     initialSwitchStates: {
@@ -56,7 +56,7 @@ export const LEVELS = [
   {
     id: 4,
     name: "Level 4",
-    boardId: "branchingIntro",
+    boardId: "branchingBase",
     difficultyLabel: "Bigger Queue",
     tutorialText: "The pace is more demanding now. Reset quickly after each train commits.",
     initialSwitchStates: {
@@ -76,7 +76,7 @@ export const LEVELS = [
   {
     id: 5,
     name: "Level 5",
-    boardId: "branchingIntro",
+    boardId: "branchingBase",
     difficultyLabel: "First Push",
     tutorialText: "This is the first real challenge. Stay ahead of the route and keep resetting early.",
     initialSwitchStates: {
@@ -97,7 +97,7 @@ export const LEVELS = [
   {
     id: 6,
     name: "Level 6",
-    boardId: "branchingIntro",
+    boardId: "branchingBase",
     difficultyLabel: "Route Reset",
     tutorialText: "A step up from Level 5. Reset the route quickly after each train.",
     initialSwitchStates: {
@@ -118,7 +118,7 @@ export const LEVELS = [
   {
     id: 7,
     name: "Level 7",
-    boardId: "branchingIntro",
+    boardId: "branchingBase",
     difficultyLabel: "Upper Pressure",
     tutorialText: "The top half changes often now. Do not leave the second switch behind.",
     initialSwitchStates: {
@@ -139,7 +139,7 @@ export const LEVELS = [
   {
     id: 8,
     name: "Level 8",
-    boardId: "branchingIntro",
+    boardId: "branchingBase",
     difficultyLabel: "Full Mix",
     tutorialText: "All four destinations matter. Read the whole route tree before each split.",
     initialSwitchStates: {
@@ -161,7 +161,7 @@ export const LEVELS = [
   {
     id: 9,
     name: "Level 9",
-    boardId: "branchingIntro",
+    boardId: "branchingBase",
     difficultyLabel: "Reset Pressure",
     tutorialText: "The routes change fast now. Recover immediately after each train commits.",
     initialSwitchStates: {
@@ -183,7 +183,7 @@ export const LEVELS = [
   {
     id: 10,
     name: "Level 10",
-    boardId: "branchingIntro",
+    boardId: "branchingBase",
     difficultyLabel: "Board Test",
     tutorialText: "A full-route test. Stay ahead of the network and keep every switch ready.",
     initialSwitchStates: {
@@ -206,7 +206,7 @@ export const LEVELS = [
   {
     id: 11,
     name: "Level 11",
-    boardId: "branchingIntro",
+    boardId: "branchingYellow",
     difficultyLabel: "New Destination",
     tutorialText: "Yellow is new, but the pace does not slow down. Read all the way through Switch 4.",
     initialSwitchStates: {
@@ -227,7 +227,7 @@ export const LEVELS = [
   {
     id: 12,
     name: "Level 12",
-    boardId: "branchingIntro",
+    boardId: "branchingYellow",
     difficultyLabel: "One More Split",
     tutorialText: "Gray and yellow share the same first path, so you need to finish the route, not guess it.",
     initialSwitchStates: {
@@ -249,7 +249,7 @@ export const LEVELS = [
   {
     id: 13,
     name: "Level 13",
-    boardId: "branchingIntro",
+    boardId: "branchingYellow",
     difficultyLabel: "Mixed Depth",
     tutorialText: "Now the route keeps jumping between the lower half and the deeper yellow branch.",
     initialSwitchStates: {
@@ -272,7 +272,7 @@ export const LEVELS = [
   {
     id: 14,
     name: "Level 14",
-    boardId: "branchingIntro",
+    boardId: "branchingYellow",
     difficultyLabel: "Upper Route Pressure",
     tutorialText: "The upper routes are busy now. Switch 2 and Switch 4 both need fast resets.",
     initialSwitchStates: {
@@ -296,7 +296,7 @@ export const LEVELS = [
   {
     id: 15,
     name: "Level 15",
-    boardId: "branchingIntro",
+    boardId: "branchingYellow",
     difficultyLabel: "Five-House Test",
     tutorialText: "Full board test. Keep all four switches ready and recover immediately after each commit.",
     initialSwitchStates: {
