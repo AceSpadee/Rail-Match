@@ -71,6 +71,7 @@ function formatSwitchLabel(switchId) {
   if (switchId === "s1") return "Switch 1";
   if (switchId === "s2") return "Switch 2";
   if (switchId === "s3") return "Switch 3";
+  if (switchId === "s4") return "Switch 4";
 
   return switchId
     .replace(/([A-Z])/g, " $1")
@@ -85,12 +86,13 @@ function formatSwitchControls(switchId) {
   if (switchId === "s1") return "Click switch or press 1 / A / Left";
   if (switchId === "s2") return "Click switch or press 2 / S / Up";
   if (switchId === "s3") return "Click switch or press 3 / D / Right";
+  if (switchId === "s4") return "Click switch or press 4 / F / Down";
   return "Click switch to toggle";
 }
 
 function getOrderedSwitchIds(switches) {
   const ids = Object.keys(switches || {});
-  const order = ["s1", "s2", "s3"];
+  const order = ["s1", "s2", "s3", "s4"];
 
   return ids.sort((a, b) => {
     const aIndex = order.indexOf(a);
@@ -124,7 +126,7 @@ export default function RailMatchGame() {
     currentTime: 0,
     switchFlashUntil: 0,
     failFlashUntil: 0,
-    housePulseUntil: { red: 0, blue: 0, gray: 0, green: 0 },
+    housePulseUntil: { red: 0, blue: 0, gray: 0, green: 0, yellow: 0 },
   });
 
   const COUNTDOWN_SECONDS = 3;
@@ -140,7 +142,7 @@ export default function RailMatchGame() {
       currentTime: 0,
       switchFlashUntil: 0,
       failFlashUntil: 0,
-      housePulseUntil: { red: 0, blue: 0, gray: 0, green: 0 },
+      housePulseUntil: { red: 0, blue: 0, gray: 0, green: 0, yellow: 0 },
     });
   }
 
@@ -308,7 +310,7 @@ export default function RailMatchGame() {
       if (gameState.status !== "playing" || isPaused || isCountingDown) return;
 
       const switchIds = getOrderedSwitchIds(gameState.switches);
-      const [firstSwitchId, secondSwitchId, thirdSwitchId] = switchIds;
+      const [firstSwitchId, secondSwitchId, thirdSwitchId, fourthSwitchId] = switchIds;
 
       if (
         (event.code === "Digit1" || event.code === "KeyA" || event.code === "ArrowLeft") &&
@@ -331,9 +333,19 @@ export default function RailMatchGame() {
       if (
         (event.code === "Digit3" || event.code === "KeyD" || event.code === "ArrowRight") &&
         thirdSwitchId
-      ) {
+      ) 
+       {
         event.preventDefault();
         applySwitchToggle(thirdSwitchId);
+        return;
+      }
+
+      if (
+        (event.code === "Digit4" || event.code === "KeyF" || event.code === "ArrowDown") &&
+        fourthSwitchId
+      ) {
+        event.preventDefault();
+        applySwitchToggle(fourthSwitchId);
         return;
       }
 

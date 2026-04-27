@@ -32,6 +32,12 @@ export const BOARDS = {
         y: 545,
         defaultState: "left",
       },
+      s4: {
+        id: "s4",
+        x: 1035,
+        y: 260,
+        defaultState: "left",
+      },
     },
 
     houses: {
@@ -47,7 +53,15 @@ export const BOARDS = {
         id: "gray-house",
         color: "gray",
         x: 1215,
-        y: 315,
+        y: 255,
+        width: 82,
+        height: 70,
+      },
+      yellow: {
+        id: "yellow-house",
+        color: "yellow",
+        x: 1215,
+        y: 365,
         width: 82,
         height: 70,
       },
@@ -117,15 +131,29 @@ export const BOARDS = {
         { x: 1115, y: 105 },
       ],
 
-      s2Right: [
+      s2RightToS4: [
         { x: 790, y: 225 },
-        { x: 860, y: 228 },
-        { x: 930, y: 235 },
-        { x: 1000, y: 246 },
-        { x: 1070, y: 262 },
-        { x: 1130, y: 280 },
-        { x: 1180, y: 298 },
-        { x: 1215, y: 315 },
+        { x: 850, y: 230 },
+        { x: 905, y: 236 },
+        { x: 955, y: 244 },
+        { x: 995, y: 252 },
+        { x: 1035, y: 260 },
+      ],
+
+      s4Left: [
+        { x: 1035, y: 260 },
+        { x: 1080, y: 258 },
+        { x: 1125, y: 257 },
+        { x: 1170, y: 256 },
+        { x: 1215, y: 255 },
+      ],
+
+      s4Right: [
+        { x: 1035, y: 260 },
+        { x: 1080, y: 286 },
+        { x: 1125, y: 315 },
+        { x: 1170, y: 342 },
+        { x: 1215, y: 365 },
       ],
 
       s3Left: [
@@ -160,7 +188,12 @@ export const BOARDS = {
       s1Left: {
         switchId: "s2",
         left: "s2Left",
-        right: "s2Right",
+        right: "s2RightToS4",
+      },
+      s2RightToS4: {
+        switchId: "s4",
+        left: "s4Left",
+        right: "s4Right",
       },
       s1Right: {
         switchId: "s3",
@@ -171,7 +204,8 @@ export const BOARDS = {
 
     destinations: {
       s2Left: "blue",
-      s2Right: "gray",
+      s4Left: "gray",
+      s4Right: "yellow",
       s3Left: "red",
       s3Right: "green",
     },
